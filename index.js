@@ -27,6 +27,43 @@ app.get("/datanumber/:num1/:num2", (req, res) => {
 
 })
 
+app.get("/datanumber/:num1/:num2", (req, res) => {
+    const num1 = req.params.num1
+    const num2 = req.params.num2
+    const total = Number(num1)+Number(num2);
+    res.send(` ${num1} + ${num2} = ${total} `);
+
+})
+app.get("/datanumber/:num1/:num2", (req, res) => {
+    const num1 = req.params.num1
+    const num2 = req.params.num2
+    const total = Number(num1)+Number(num2);
+    res.send(` ${num1} + ${num2} = ${total} `);
+
+})
+app.get("/datanumber/:num1/:num2", (req, res) => {
+    const num1 = req.params.num1
+    const num2 = req.params.num2
+    const total = Number(num1)+Number(num2);
+    res.send(` ${num1} + ${num2} = ${total} `);
+
+})
+app.get("/datanumber/:num1/:num2", (req, res) => {
+    const num1 = req.params.num1
+    const num2 = req.params.num2
+    const total = Number(num1)+Number(num2);
+    res.send(` ${num1} + ${num2} = ${total} `);
+
+})
+app.get("/datanumber/:num1/:num2", (req, res) => {
+    const num1 = req.params.num1
+    const num2 = req.params.num2
+    const total = Number(num1)+Number(num2);
+    res.send(` ${num1} + ${num2} = ${total} `);
+
+})
+
+
 // app.get("/datanumber/:num1/:num2", (req, res) => {
 //     const num1 = req.params.num1
 //     const num2 = req.params.num2
