@@ -86,18 +86,70 @@ app.get("/users", async (req ,res) => {
 })
 
 app.get("/usersSerch/:id", async (req ,res) => {
-    
-    const id = req.params.id
-    const user = await User.findById(id)
-        .then((user)=>{
-            res.json(user); 
-        })
-        .catch((err) =>{
-            res.send({ message : "thid id is not found", err })
-        })
+    const id = req.params.id ;
+    try{
+        const user = await User.findById(id);
+        if (!user) {
+            return res.status(404).send({ message: "User not found" });
+        }
+        res.status(200).json(user);
+
+    } catch (err) {
+        console.log({ message : "eror while reading user of id", id});
+        return res.send({ message : "eror while reading user of id", id })
+
+    }
+
+
+    //An other way
+    // const id = req.params.id
+    // const user = await User.findById(id)
+    //     .then((user)=>{
+    //         res.json(user); 
+    //     })
+    //     .catch((err) =>{
+    //         res.send({ message : "thid id is not found", err })
+    //     })
         
 
 })
+
+app.delete("/users/:id", async (req, res) => {
+    const id = req.params.id;
+    try {
+        const user = await User.findByIdAndDelete(id);
+        if (!user) {
+            return res.status(404).send({ message: "User not found" });
+        }
+        res.status(200).json(user);
+    } catch (err) {
+        console.error({ message: "Error while deleting user of id " + id });
+        res.status(500).send({ message: "Error while deleting user of id " + id });
+    }
+});
+
+app.put("/users/:id", async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id);
+
+        if (user) {
+            user.name = req.body.name || user.name;
+            user.email = req.body.email || user.email;
+            user.password = req.body.password || user.password;
+
+            const updatedUser = await user.save();
+            res.json(updatedUser);
+        } else {
+            res.status(404).send({ message : "users not found"});
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
+
+
 
 
 
