@@ -163,7 +163,7 @@ app.get("/showUser", async (req,res) => {
 
 
 
-app.listen(3001, () => {
+app.listen(3000, () => {
     console.log({ message: "server started"});
 })
 
