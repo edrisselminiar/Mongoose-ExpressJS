@@ -148,7 +148,15 @@ app.put("/users/:id", async (req, res) => {
     }
 });
 
+app.get("/showUser", async (req,res) => {
+    const user = await User.find()
+    res.render("users.ejs",
+         {
+            users: user
+         }
+    )
 
+})
 
 
 
