@@ -14,9 +14,7 @@ mongoose.connect("mongodb+srv://rrdp300:INgIrEsCViDvnuhG@cluster0.5fmvsi2.mongod
     .then(() => {
         console.log({message: 'MongoDB Connected'});
 
-        app.get("/", (req, res) => {
-            console.log("hello");
-        })
+      
 
 
     })
@@ -25,7 +23,9 @@ mongoose.connect("mongodb+srv://rrdp300:INgIrEsCViDvnuhG@cluster0.5fmvsi2.mongod
 
     })
 
-
+  app.get("/", (req, res) => {
+            console.log("hello");
+        })
 
 //mongodb+srv://rrdp300:<password>@cluster0.5fmvsi2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 app.get("/data", (req,res) => {
